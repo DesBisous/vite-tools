@@ -10,6 +10,7 @@ const start = cb => {
 const complete = cb => {
   logger.info('✨  Glup 构建完成 ~');
   cb();
+  process.exit(); // 结束 node 进程
 };
 
 export const changelog = series(start, changelogTask, complete);
