@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    /* 基础配置 */
+    "outDir": "./lib",
+    "baseUrl": ".", // 这是表示 tsconfig.json 所使用的相对路径的基础位置
+    "target": "es5", // 指定ECMAScript目标版本:“ES3”(默认)、“es5”、“ES2015”、“ES2016”、“ES2017”、“ES2018”或“ESNEXT”
+    // "module": "es2015", // 指定模块代码生成:“none”、“commonjs”、“amd”、“system”、“umd”、“es2015”或“ESNext”
+    "noEmit": true, // Do not emit outputs
+    "strict": true, // 启用所有严格的类型检查选项
+    "allowJs": true, // 允许编译javascript文件
+    "sourceMap": false, // 是否生成sourceMap
+    "declaration": true, // 生成定义文件
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "noUnusedLocals": true, // 未使用变量报错
+    "esModuleInterop": true, // 通过为所有导入创建名称空间对象，支持CommonJS和ES模块之间的互操作性
+    "declarationMap": false, // 生成定义sourceMap
+    "isolatedModules": true, // 将每个文件转换为一个单独的模块(类似于“ts.transpileModule”)
+    "strictNullChecks": false, // 可以切换到新的严格空检查模式中。 null和undefined值不再属于任何类型的值，仅仅属于它们自己类型和any类型的值 （还有一个例外， undefined也能赋值给void）
+    "resolveJsonModule": true,
+    "moduleResolution": "node", // 指定模块解析策略:“node”(node .js)或“classic”(TypeScript pre-1.6)
+    "experimentalDecorators": true, // 启用实验性的ES装饰器
+    "declarationDir": "./lib/types", // 定义文件输出目录
+    "allowSyntheticDefaultImports": true, // 允许从没有默认导出的模块进行默认导入。这并不影响代码发出，只影响类型查询
+    "forceConsistentCasingInFileNames": true,
+    "lib": [
+      // 指定要包含在编译中的库文件
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "types": ["node"] // 导入指定类型包
+  },
+  "include": ["src"],
+  "workspaces": ["src/*"],
+  "exclude": ["lib", "node_modules", "scripts"],
+  "paths": {}
+}
