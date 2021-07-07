@@ -35,7 +35,7 @@
     "lint": "eslint --ext src/*",
     "lint:fix": "eslint --fix --ext src/*",
     "dev": "cross-env NODE_ENV=development yarn glup",
-    "build": "yarn lint & yarn test & yarn changelog & cross-env NODE_ENV=production yarn glup"
+    "build": "yarn lint & yarn test & cross-env NODE_ENV=production yarn glup"
   },
   "gitHooks": {
     "pre-commit": "lint-staged & yarn test",
