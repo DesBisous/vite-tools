@@ -1,4 +1,5 @@
 import path from 'path';
+import fs from 'fs';
 import fse from 'fs-extra';
 import { ExtractorConfig, ExtractorResult, Extractor } from '@microsoft/api-extractor';
 import { paths, logger, isDev, wait } from '../common';
@@ -35,8 +36,10 @@ export const apiExtractorTask: TaskFunc = async cb => {
     // 删除多余的 .d.ts 文件
     const libFiles: string[] = await fse.readdir(paths.lib);
     libFiles.forEach(async file => {
-      if (file.endsWith('.d.ts') && !file.includes('index')) {
-        await fse.remove(path.join(paths.lib, file));
+      const filePath = path.join(paths.lib, file);
+      if (!file.includes('index')) {
+        if (file.endsWith('.d.ts')) await fse.remove(filePath);
+        if (fs.statSync(filePath).isDirectory()) await fse.remove(filePath);
       }
     });
     logger.progress('API Extractor 成功处理完成 ~');

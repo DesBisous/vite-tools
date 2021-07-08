@@ -1,5 +1,9 @@
+/* eslint-disable jest/no-commented-out-tests */
 import assert from 'assert';
-import myFirstFunc from '../src/demo';
+
+function myFirstFunc(str: string) {
+  return 'hello ' + str;
+}
 
 describe('validate:', () => {
   describe('myFirstFunc', () => {

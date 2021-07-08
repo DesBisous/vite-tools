@@ -4,16 +4,11 @@
 
 ```ts
 
-// @beta
-export const add: () => number;
-
-// @beta
-export const hello: (str: string) => string;
+// @public
+export function debounce(func: () => void, wait: number, immediate?: boolean): () => void;
 
 // @public
-function myFirstFunc(str: string): string;
-
-export default myFirstFunc;
+export function throttle(func: () => void, wait: number, type?: number): () => void;
 
 
 // (No @packageDocumentation comment for this package)
