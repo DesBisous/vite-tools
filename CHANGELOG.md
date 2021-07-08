@@ -6,6 +6,7 @@
 ### Features
 
 * 优化构建流程 ([c3fad0c](https://github.com/DesBisous/vite-tools/commit/c3fad0c9e771a087efee7706a45fe995b4260965))
+* 增加 Gulp 对目录的删除操作 ([4caa8c3](https://github.com/DesBisous/vite-tools/commit/4caa8c3c5c6249039ad0f7e96043558050fda972))
 * 增加 Gulp 结束进程指令 ([4906a67](https://github.com/DesBisous/vite-tools/commit/4906a6797bf6cc8287cc8036d949cb9bbbc11eac))
 * 增加 Gulp 结束进程指令 ([f52c3bc](https://github.com/DesBisous/vite-tools/commit/f52c3bc38efde20df9ea73e70a6511080d880bae))
 * 增加 ts 配置文件 ([9f4868b](https://github.com/DesBisous/vite-tools/commit/9f4868bae9eb351d3235376cf2dbc15ee0e22650))
