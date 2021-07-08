@@ -1,6 +1,6 @@
 {
   "name": "vite-tools",
-  "version": "0.0.6-bate1.1",
+  "version": "0.0.6-bate1.2",
   "description": "工具库",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
