@@ -4,7 +4,9 @@
   "bundledPackages": [],
   "apiReport": {
     "enabled": true,
-    "reportFolder": "./docs/"
+    "reportFolder": "./docs/",
+    "reportTempFolder": "./docs/",
+    "reportFileName": "vite-tools.api.md"
   },
   "docModel": {
     "enabled": false

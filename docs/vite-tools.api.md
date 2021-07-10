@@ -8,6 +8,18 @@
 export function debounce(func: () => void, wait: number, immediate?: boolean): () => void;
 
 // @public
+export function deleteCookie(name: string, domain?: string, path?: string): void;
+
+// @public
+export function getCookie(name: string): string;
+
+// @public
+export function getDomain(): string;
+
+// @public
+export function setCookie(name: string, value: string, time: number, domain?: string, path?: string): void;
+
+// @public
 export function throttle(func: () => void, wait: number, type?: number): () => void;
 
 

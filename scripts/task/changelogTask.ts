@@ -9,7 +9,7 @@ export const changelogTask: TaskFunc = async cb => {
   // 对命令 conventional-changelog -p angular -i CHANGELOG.md -w -r 0
   const changelogPipe = await conventionalChangelog({
     preset: 'angular',
-    // releaseCount: 0,
+    releaseCount: 0,
   });
 
   changelogPipe.setEncoding('utf8');
