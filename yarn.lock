@@ -1609,6 +1609,11 @@
     "@types/expect" "^1.20.4"
     "@types/node" "*"
 
+"@types/webpack-env@^1.16.2":
+  version "1.16.2"
+  resolved "http://nexus.tech.2caipiao.com/content/groups/npms/@types/webpack-env/-/webpack-env-1.16.2.tgz#8db514b059c1b2ae14ce9d7bb325296de6a9a0fa"
+  integrity sha512-vKx7WNQNZDyJveYcHAm9ZxhqSGLYwoyLhrHjLBOkw3a7cT76sTdjgtwyijhk1MaHyRIuSztcVwrUOO/NEu68Dw==
+
 "@types/yargs-parser@*":
   version "20.2.1"
   resolved "http://nexus.tech.2caipiao.com/content/groups/npms/@types/yargs-parser/-/yargs-parser-20.2.1.tgz#3b9ce2489919d9e4fea439b76916abc34b2df129"
