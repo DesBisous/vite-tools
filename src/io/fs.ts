@@ -1,4 +1,4 @@
-import { GeneralObject } from '../interfaces/common';
+import { BaseObject } from '../interfaces/common';
 /**
  * 获取目录中的文件内容
  * @param context - require.context 返回值
@@ -11,8 +11,8 @@ export function importAll(
   context: __WebpackModuleApi.RequireContext,
   extRegExp = /\.js$/,
   keyRegExpCb = (key: string) => key
-): GeneralObject {
-  const modules: GeneralObject = {};
+): BaseObject {
+  const modules: BaseObject = {};
   const replace = (str: string) => str.replace(/.\//g, '').replace(extRegExp, '');
 
   context.keys().forEach((key: string) => {

@@ -2,6 +2,6 @@ export interface BaseFunc {
   (): void;
 }
 
-export interface GeneralObject {
+export interface BaseObject {
   [x: string]: any;
 }

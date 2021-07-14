@@ -1,3 +1,5 @@
+import { BaseObject } from '../interfaces/common';
+
 /**
  * 校验是否为无效值：[空字符串，null, undefined]
  * @param value - 待判断值
@@ -21,7 +23,7 @@ export function isInvalid(value: unknown): boolean {
  * @returns 返回 Boolean
  * @public
  */
-export function isObject(val: unknown): boolean {
+export function isObject(val: unknown): val is BaseObject {
   return val !== null && typeof val === 'object';
 }
 
@@ -31,7 +33,7 @@ export function isObject(val: unknown): boolean {
  * @returns 返回 Boolean
  * @public
  */
-export function isNumber(val: unknown): boolean {
+export function isNumber(val: unknown): val is number {
   const regPos = /^\d+(\.\d+)?$/; //非负浮点数
   const regNeg =
     /^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$/; //负浮点数

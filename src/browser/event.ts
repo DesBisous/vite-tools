@@ -1,3 +1,4 @@
+import { BaseFunc } from '../interfaces/common';
 /**
  * 函数防抖
  * @param func - 回调函数
@@ -6,7 +7,7 @@
  * @returns 返回新防抖函数
  * @public
  */
-export function debounce(func: () => void, wait: number, immediate?: boolean): () => void {
+export function debounce(func: BaseFunc, wait: number, immediate?: boolean): BaseFunc {
   let timeout: NodeJS.Timeout;
 
   return function (this: any, ...args: []) {
@@ -35,7 +36,7 @@ export function debounce(func: () => void, wait: number, immediate?: boolean): (
  * @returns 返回新防抖函数
  * @public
  */
-export function throttle(func: () => void, wait: number, type = 2): () => void {
+export function throttle(func: BaseFunc, wait: number, type = 2): BaseFunc {
   let previous = 0;
   let timeout: NodeJS.Timeout;
 

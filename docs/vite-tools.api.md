@@ -9,8 +9,10 @@
 // @public
 export function bitSept(value: number | string, num?: number): string;
 
+// Warning: (ae-forgotten-export) The symbol "BaseFunc" needs to be exported by the entry point index.d.ts
+//
 // @public
-export function debounce(func: () => void, wait: number, immediate?: boolean): () => void;
+export function debounce(func: BaseFunc, wait: number, immediate?: boolean): BaseFunc;
 
 // @public
 export function deleteCookie(name: string, domain?: string, path?: string): void;
@@ -21,19 +23,19 @@ export function getCookie(name: string): string;
 // @public
 export function getDomain(): string;
 
-// Warning: (ae-forgotten-export) The symbol "GeneralObject" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "BaseObject" needs to be exported by the entry point index.d.ts
 //
 // @public
-export function importAll(context: __WebpackModuleApi.RequireContext, extRegExp?: RegExp, keyRegExpCb?: (key: string) => string): GeneralObject;
+export function importAll(context: __WebpackModuleApi.RequireContext, extRegExp?: RegExp, keyRegExpCb?: (key: string) => string): BaseObject;
 
 // @public
 export function isInvalid(value: unknown): boolean;
 
 // @public
-export function isNumber(val: unknown): boolean;
+export function isNumber(val: unknown): val is number;
 
 // @public
-export function isObject(val: unknown): boolean;
+export function isObject(val: unknown): val is BaseObject;
 
 // @public
 export function setCookie(name: string, value: string, time: number, domain?: string, path?: string): void;
@@ -42,7 +44,7 @@ export function setCookie(name: string, value: string, time: number, domain?: st
 export function thousandFormatter(value: string | number): string;
 
 // @public
-export function throttle(func: () => void, wait: number, type?: number): () => void;
+export function throttle(func: BaseFunc, wait: number, type?: number): BaseFunc;
 
 
 // (No @packageDocumentation comment for this package)
