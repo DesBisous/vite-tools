@@ -15,6 +15,9 @@ export function bitSept(value: number | string, num?: number): string;
 export function debounce(func: BaseFunc, wait: number, immediate?: boolean): BaseFunc;
 
 // @public
+export function deepClone(origin: any, hasMap?: WeakMap<object, any>): any;
+
+// @public
 export function deleteCookie(name: string, domain?: string, path?: string): void;
 
 // @public

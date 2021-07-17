@@ -1,6 +1,6 @@
 # 工具库更新日志
 
-## 0.0.6-bate1.6 (2021-07-14)
+## 0.0.6-bate1.7 (2021-07-17)
 
 
 ### Features
@@ -12,6 +12,7 @@
 * 增加 Gulp 结束进程指令 ([f52c3bc](https://github.com/DesBisous/vite-tools/commit/f52c3bc38efde20df9ea73e70a6511080d880bae))
 * 增加 ts 配置文件 ([9f4868b](https://github.com/DesBisous/vite-tools/commit/9f4868bae9eb351d3235376cf2dbc15ee0e22650))
 * 增加千分位、非法值校验、数字校验、对象校验、四舍五入方法 ([b41c08f](https://github.com/DesBisous/vite-tools/commit/b41c08fc6f3ca9c1fe55e2c7edf1cd83d20fd54e))
+* 增加测试案例 ([76036cb](https://github.com/DesBisous/vite-tools/commit/76036cbdb8afa4c9bbf2f5d05d24480bfccdbaee))
 * 增加节流函数和防抖函数 ([1298f62](https://github.com/DesBisous/vite-tools/commit/1298f6232f3d9b9d53797acfee2a1d6f2e1f79df))
 * 增加获取目录中的文件内容方法 importAll ([05a32ad](https://github.com/DesBisous/vite-tools/commit/05a32adbc42e2294cf230c66377f7e6988bb1409))
 * 工程化优化 ([796ffaf](https://github.com/DesBisous/vite-tools/commit/796ffafee5ed23f9eb94750fa88e048e5acff7d5))

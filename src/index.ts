@@ -6,3 +6,4 @@ export * from './io/fs';
 export * from './work/amount';
 export * from './work/number';
 export * from './work/validate';
+export * from './work/clone';
