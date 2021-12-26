@@ -11,7 +11,7 @@ export const apiExtractorTask: TaskFunc = async cb => {
     cb();
     return;
   }
-  await wait(2000); // 增加 2s 中等待 Rollup 构建完成
+  await wait(5000); // 增加 2s 中等待 Rollup 构建完成
   const apiExtractorJsonPath: string = paths.apiExtractorJsonPath;
   // 加载并解析 api-extractor.json 文件
   const extractorConfig: ExtractorConfig = await ExtractorConfig.loadFileAndPrepare(

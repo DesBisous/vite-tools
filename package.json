@@ -17,7 +17,7 @@
     "type": "git",
     "url": ""
   },
-  "author": "Simon",
+  "author": "xiaobin.kuang",
   "license": "MIT",
   "bugs": {
     "url": "https://registry.npmjs.org/"
@@ -32,10 +32,10 @@
     "api": "api-extractor run",
     "changelog": "gulp changelog",
     "test": "jest --coverage --verbose -u",
-    "lint": "eslint --ext src/**/*",
-    "lint:fix": "eslint --fix --ext src/**/*",
+    "lint": "eslint --ext src/**/* --no-error-on-unmatched-pattern",
+    "lint:fix": "eslint --ext src/**/* --no-error-on-unmatched-pattern --fix",
     "dev": "cross-env NODE_ENV=development yarn glup",
-    "build": "yarn lint & yarn test & cross-env NODE_ENV=production yarn glup"
+    "build": "yarn lint & yarn test && cross-env NODE_ENV=production yarn glup"
   },
   "gitHooks": {
     "pre-commit": "lint-staged & yarn test",
@@ -71,13 +71,12 @@
     "babel-eslint": "^10.1.0",
     "chalk": "^4.1.1",
     "conventional-changelog-cli": "^2.1.1",
-    "core-js": "2",
     "cross-env": "^7.0.3",
     "eslint": "^7.30.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jest": "^24.3.6",
     "eslint-plugin-prettier": "^3.4.0",
-    "fs-extra": "^9.0.1",
+    "fs-extra": "^10.0.0",
     "gulp": "^4.0.2",
     "jest": "^26.6.3",
     "lint-staged": "^11.0.0",

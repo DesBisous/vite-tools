@@ -1,6 +1,6 @@
 /* eslint-disable jest/no-commented-out-tests */
 import assert from 'assert';
-import { isInvalid, isObject, isNumber } from '../src/work/validate';
+import { isInvalid, isObject, isNumber } from '../../src/work/validate';
 
 describe('validate:', () => {
   test('test: isInvalid', () => {

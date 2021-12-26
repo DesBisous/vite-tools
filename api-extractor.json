@@ -1,11 +1,14 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/api-extractor/v7/api-extractor.schema.json",
-  "mainEntryPointFilePath": "./lib/index.d.ts",
+  "mainEntryPointFilePath": "<projectFolder>/lib/index.d.ts",
   "bundledPackages": [],
+  "compiler": {
+    "tsconfigFilePath": "<projectFolder>/tsconfig.json"
+  },
   "apiReport": {
     "enabled": true,
-    "reportFolder": "./docs/",
-    "reportTempFolder": "./docs/",
+    "reportFolder": "<projectFolder>/docs/",
+    "reportTempFolder": "<projectFolder>/docs/",
     "reportFileName": "vite-tools.api.md"
   },
   "docModel": {
@@ -13,7 +16,7 @@
   },
   "dtsRollup": {
     "enabled": true,
-    "untrimmedFilePath": "./lib/index.d.ts"
+    "untrimmedFilePath": "<projectFolder>/lib/index.d.ts"
   },
   "tsdocMetadata": {
     "enabled": false

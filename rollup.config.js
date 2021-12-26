@@ -41,13 +41,16 @@ const rollupConfig = {
         moduleDirectory: 'node_modules',
       },
     }),
-    rollupTypescript(),
+    rollupTypescript({
+      tsconfig: path.join(__dirname, './tsconfig.json'), // 本地ts配置
+      extensions: [...DEFAULT_EXTENSIONS, '.ts', '.tsx'],
+    }),
     babel({
       runtimeHelpers: true,
       // 只转换源代码，不运行外部依赖
       exclude: 'node_modules/**',
       // babel 默认不支持 ts 需要手动添加
-      extensions: [...DEFAULT_EXTENSIONS, '.ts'],
+      extensions: [...DEFAULT_EXTENSIONS, '.ts', '.tsx'],
     }),
     !isDev && terser(),
     isDev &&

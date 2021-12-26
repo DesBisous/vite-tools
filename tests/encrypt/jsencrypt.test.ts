@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import assert from 'assert';
-import { encrypt, decrypt } from '../src/encrypt/jsencrypt';
+import { encrypt, decrypt } from '../../src/encrypt/jsencrypt';
 
 describe('encrypt:', () => {
   test('test: jsencrypt', () => {
