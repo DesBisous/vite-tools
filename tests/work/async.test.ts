@@ -1,4 +1,4 @@
-import { wait } from '../../src/work/async';
+import { wait } from '../../src/utils/async';
 
 describe('async:', () => {
   test('test: wait', async () => {

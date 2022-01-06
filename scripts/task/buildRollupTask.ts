@@ -1,36 +1,31 @@
 // rollup 打包
-import rollupConfig from '../../rollup.config';
-import { rollup, watch } from 'rollup';
-import { isDev, logger, watchCode } from '../common';
-import { OutputOptions } from 'rollup';
+import rollupConfigs from '../../rollup.config';
+import { rollup, OutputOptions, RollupOptions } from 'rollup';
+import { logger } from '../common';
+import { endTime } from '../../gulpfile';
+import { rollupWatch } from '../watch';
 import { TaskFunc } from './interfaces';
 
 export const buildRollupTask: TaskFunc = async cb => {
-  const inputOptions = {
-    input: rollupConfig.input,
-    external: rollupConfig.external,
-    plugins: rollupConfig.plugins,
-  };
-  const outOptions = rollupConfig.output as OutputOptions;
-  const bundle = await rollup(inputOptions);
-
-  // 写入需要遍历输出配置
-  if (Array.isArray(outOptions)) {
-    outOptions.forEach(async outOption => {
-      await bundle.write(outOption);
-    });
-    cb();
-    logger.progress('Rollup 构建成功');
-  }
-
-  if (isDev) {
-    const watchOptions = {
-      ...inputOptions,
-      output: outOptions,
+  rollupConfigs.forEach(async rollupConfig => {
+    const inputOptions = {
+      input: rollupConfig.input,
+      external: rollupConfig.external,
+      plugins: rollupConfig.plugins,
     };
-    const watcher = watch(watchOptions);
-    watcher.on('event', event => {
-      logger.info(watchCode[event.code]);
-    });
-  }
+    const outOptions = rollupConfig.output as OutputOptions;
+    const bundle = await rollup(inputOptions as RollupOptions);
+
+    // 写入需要遍历输出配置
+    if (Array.isArray(outOptions)) {
+      outOptions.forEach(async outOption => {
+        await bundle.write(outOption);
+      });
+    }
+    // 监听
+    rollupWatch(inputOptions as RollupOptions, outOptions);
+    endTime();
+  });
+  cb();
+  logger.progress('Rollup 构建成功 ~');
 };

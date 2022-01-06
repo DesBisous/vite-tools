@@ -14,9 +14,7 @@ export const apiExtractorTask: TaskFunc = async cb => {
   await wait(5000); // 增加 2s 中等待 Rollup 构建完成
   const apiExtractorJsonPath: string = paths.apiExtractorJsonPath;
   // 加载并解析 api-extractor.json 文件
-  const extractorConfig: ExtractorConfig = await ExtractorConfig.loadFileAndPrepare(
-    apiExtractorJsonPath
-  );
+  const extractorConfig: ExtractorConfig = await ExtractorConfig.loadFileAndPrepare(apiExtractorJsonPath);
   // 判断是否存在 index.d.ts 文件，这里必须异步先访问一边，不然后面找不到会报错
   const isExist: boolean = await fse.pathExists(extractorConfig.mainEntryPointFilePath);
 
@@ -46,8 +44,7 @@ export const apiExtractorTask: TaskFunc = async cb => {
     cb();
   } else {
     logger.error(
-      `API Extractor 工作中出现 ${extractorResult.errorCount} Errors` +
-        ` 和 ${extractorResult.warningCount} Warnings`
+      `API Extractor 工作中出现 ${extractorResult.errorCount} Errors` + ` 和 ${extractorResult.warningCount} Warnings`
     );
   }
 };

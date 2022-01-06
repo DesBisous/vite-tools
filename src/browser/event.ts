@@ -8,7 +8,7 @@ import { BaseFunc } from '../interfaces/common';
  * @public
  */
 export function debounce(func: BaseFunc, wait: number, immediate?: boolean): BaseFunc {
-  let timeout: NodeJS.Timeout;
+  let timeout: any;
 
   return function (this: any, ...args: []) {
     const context = this as any;
@@ -36,9 +36,9 @@ export function debounce(func: BaseFunc, wait: number, immediate?: boolean): Bas
  * @returns 返回新防抖函数
  * @public
  */
-export function throttle(func: BaseFunc, wait: number, type = 2): BaseFunc {
+export function throttle(func: BaseFunc, wait = 200, type = 1): BaseFunc {
   let previous = 0;
-  let timeout: NodeJS.Timeout;
+  let timeout: any;
 
   return function (this: any, ...args: []) {
     const context = this as any;

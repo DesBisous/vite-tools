@@ -1,10 +1,17 @@
+import { isBrowser } from '../utils/validate';
+import { getGlobal } from './element';
+
 /**
  * 获取地址的参数，指定的参数
- * @param name - url 参数名
+ * 支持 浏览器，服务端
+ * @param {string} name
+ * @param {string} url (可选参数), 外部传入链接匹配
  */
-export const getQuery = (name: string): string | undefined => {
+export function getQuery(name: string, url?: string): string | undefined {
   const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
-  const r = window.location.search.substr(1).match(reg);
-  if (r === null) return;
-  return unescape(r[2]);
-};
+  const _url = url || (isBrowser() ? getGlobal().location.search : null);
+  if (!_url) return;
+  const result = _url.substr(1).match(reg);
+  if (result === null) return;
+  return unescape(result[2]);
+}

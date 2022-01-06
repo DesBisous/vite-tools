@@ -11,18 +11,13 @@ import { DEFAULT_EXTENSIONS } from '@babel/core';
 import pkg from './package.json';
 export const isDev = process.env.NODE_ENV !== 'production';
 
-// rollup 配置项
-const rollupConfig = {
-  input: path.join(__dirname, 'src/index.ts'),
-  output: [
-    // 输出 commonjs 规范的代码
-    { format: 'cjs', name: pkg.name, file: pkg.main, sourcemap: isDev, exports: 'named' },
-    // 输出 es 规范的代码
-    { format: 'es', name: pkg.name, file: pkg.module, sourcemap: isDev, exports: 'named' },
-    // 输出 umd 规范的代码
-    { format: 'umd', name: pkg.name, file: pkg.browser, sourcemap: isDev, exports: 'named' },
-  ],
-  // external: ['lodash'], // 指出应将哪些模块视为外部模块，如 Peer dependencies 中的依赖
+export const globals = {
+  'decimal.js': 'decimal.js',
+  jsencrypt: 'jsencrypt',
+};
+
+const defaultRollupConfig = {
+  external: Object.keys(globals), // 指出应将哪些模块视为外部模块，如 Peer dependencies 中的依赖
   // plugins 需要注意引用顺序
   plugins: [
     // 验证导入的文件
@@ -63,4 +58,34 @@ const rollupConfig = {
   ],
 };
 
-export default rollupConfig;
+// rollup 配置项
+const rollupConfig = {
+  input: path.join(__dirname, 'src/index.ts'),
+  output: [
+    // 输出 commonjs 规范的代码
+    { format: 'cjs', name: pkg.name, file: pkg.main, sourcemap: isDev, exports: 'named' },
+    // 输出 es 规范的代码
+    { format: 'es', name: pkg.name, file: pkg.module, sourcemap: isDev, exports: 'named' },
+    // 输出 umd 规范的代码
+    { format: 'umd', name: pkg.name, file: pkg.browser, sourcemap: isDev, exports: 'named' },
+  ],
+  ...defaultRollupConfig,
+};
+
+const hookRollupConfig = {
+  input: path.join(__dirname, 'src/hook/index.ts'),
+  output: [
+    // 输出 umd 规范的代码
+    { format: 'umd', name: pkg.name, file: 'lib/ajaxHook.js', sourcemap: isDev, exports: 'named' },
+  ],
+  external: Object.keys(globals), // 指出应将哪些模块视为外部模块，如 Peer dependencies 中的依赖
+  plugins: [
+    rollupTypescript({
+      tsconfig: path.join(__dirname, './tsconfig.json'), // 本地ts配置
+      extensions: [...DEFAULT_EXTENSIONS, '.ts', '.tsx'],
+    }),
+  ],
+};
+
+// export default [rollupConfig, hookRollupConfig];
+export default [hookRollupConfig];

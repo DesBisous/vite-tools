@@ -1,12 +1,13 @@
 # 工具库更新日志
 
-## 0.0.6-bate1.8 (2021-12-26)
+## 0.0.6-bate1.8 (2021-12-28)
 
 
 ### Features
 
 * 更改 Bulid Gulp 构建流程 ([ba8e51b](https://github.com/DesBisous/vite-tools/commit/ba8e51b97510ab84a39399d1797bf348e7ae7db6))
 * 工程化优化 ([796ffaf](https://github.com/DesBisous/vite-tools/commit/796ffafee5ed23f9eb94750fa88e048e5acff7d5))
+* 完善 ([9fa4792](https://github.com/DesBisous/vite-tools/commit/9fa4792cdbcab2e7c565a7925d9e3552408478d7))
 * 优化构建流程 ([c3fad0c](https://github.com/DesBisous/vite-tools/commit/c3fad0c9e771a087efee7706a45fe995b4260965))
 * 增加 Cookie 公共函数 ([fc0ad47](https://github.com/DesBisous/vite-tools/commit/fc0ad475d12c5127679c68fd11226488299840c3))
 * 增加 Gulp 对目录的删除操作 ([4caa8c3](https://github.com/DesBisous/vite-tools/commit/4caa8c3c5c6249039ad0f7e96043558050fda972))
