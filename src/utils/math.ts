@@ -1,5 +1,6 @@
-import { Decimal } from 'decimal.js';
 import { isInvalid } from './validate';
+
+let decimal = null;
 
 /**
  * 旧: 四舍五入
@@ -33,34 +34,53 @@ export function bitSept(value: number, num: number | string = 2): string | numbe
 }
 
 /**
+ * 将数据转成数字类型
+ * @param {number} value 值
+ * @returns
+ */
+export function mathToNumber(value: any): number {
+  return value.toNumber();
+}
+
+export async function getDecimal() {
+  if (decimal) return decimal;
+  return new Promise(resolve => {
+    import('decimal.js').then(module => {
+      decimal = module.default;
+      resolve(decimal);
+    });
+  });
+}
+
+/**
  * 新: 四舍五入
  * @param {number} value 值
  * @param {number} num 位数 默认两位
  * @returns
  */
-export function mathToFixed(a: number, num = 2): string {
-  return new Decimal(a).toFixed(num);
-}
-
-export function mathToNumber(a: Decimal): number {
-  return a.toNumber();
+export async function mathToFixed(value: number, options: { num?: number }): Promise<string> {
+  const _options = { num: 2, ...options };
+  const Decimal = await getDecimal();
+  return new Decimal(value).toFixed(_options.num);
 }
 
 /**
  * 加法
  */
-export function mathAdd(a: number, ...arr: number[]): number {
+export async function mathAdd(value: number, ...arr: number[]): Promise<number> {
+  const Decimal = await getDecimal();
   return mathToNumber(
     arr.reduce((pre: any, item) => {
       return pre.add(new Decimal(item));
-    }, new Decimal(a))
+    }, new Decimal(value))
   );
 }
 
 /**
  * 减法
  */
-export function mathSubStract(a: number, ...arr: number[]): number {
+export async function mathSubStract(a: number, ...arr: number[]): Promise<number> {
+  const Decimal = await getDecimal();
   return mathToNumber(
     arr.reduce((pre: any, item) => {
       return pre.sub(new Decimal(item));
@@ -71,7 +91,8 @@ export function mathSubStract(a: number, ...arr: number[]): number {
 /**
  * 乘法
  */
-export function mathMultiply(a: number, ...arr: number[]): number {
+export async function mathMultiply(a: number, ...arr: number[]): Promise<number> {
+  const Decimal = await getDecimal();
   return mathToNumber(
     arr.reduce((pre: any, item) => {
       return pre.mul(new Decimal(item));
@@ -82,7 +103,8 @@ export function mathMultiply(a: number, ...arr: number[]): number {
 /**
  * 除法
  */
-export function mathDivide(a: number, ...arr: number[]): number {
+export async function mathDivide(a: number, ...arr: number[]): Promise<number> {
+  const Decimal = await getDecimal();
   return mathToNumber(
     arr.reduce((pre: any, item) => {
       return pre.div(new Decimal(item));

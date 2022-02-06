@@ -36,3 +36,13 @@ export const isWINRegx = /w(i|o)(w|n)(32|64)/i;
 export const isWeiBoRegx = /WeiBo/i;
 export const isMobileRegx = /mobile/i;
 export const isWechatRegx = /micromessenger/i;
+export const isTHSHexinGphoneRegx = /Hexin_Gphone/i; // 判断同花顺;
+export const isTHSIHexinRegx = /IHexin/i; // 判断同花顺;
+
+/**
+ * App类型，通过UA判断
+ */
+export enum appType {
+  SinaFinanceAndroid = 15,
+  SinaFinanceIOS = 30,
+}

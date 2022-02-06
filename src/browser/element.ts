@@ -3,7 +3,7 @@ import { LogModule } from '../data';
 
 /**
  * 兼容跨浏览器获取目标对象
- * @param ev 触发事件的对象
+ * @param ev - 触发事件的对象
  * @returns 触发事件的对象 (某个DOM元素) 的引用
  * @public
  */
@@ -22,6 +22,7 @@ export function getTarget(ev: Event): EventTarget {
  * 获取全局对象
  * 支持 浏览器，服务端
  * 查找顺序 globalThis window self
+ * @public
  */
 export function getGlobal(): (Window & typeof globalThis) | typeof globalThis {
   try {
@@ -41,8 +42,9 @@ export function getGlobal(): (Window & typeof globalThis) | typeof globalThis {
   }
 }
 
-/*
+/**
  * px计算rem
+ * @public
  */
 export function calcRem(value: unknown, root = 37.5) {
   const _val = value;

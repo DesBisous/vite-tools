@@ -6,13 +6,35 @@
 
 /// <reference types="webpack-env" />
 
+import { BaseObject as BaseObject_2 } from 'src/interfaces';
+
 // @public
-export function bitSept(value: number | string, num?: number): string;
+export enum appType {
+    // (undocumented)
+    SinaFinanceAndroid = 15,
+    // (undocumented)
+    SinaFinanceIOS = 30
+}
+
+// @public
+export function appVersion(sign?: string, customUA?: string): string;
+
+// @public
+export function appVersionComparator(version1: string, version2: string): number;
+
+// @public
+export function bitSept(value: number, num?: number | string): string | number;
+
+// @public (undocumented)
+export function calcRem(value: unknown, root?: number): unknown;
 
 // Warning: (ae-forgotten-export) The symbol "BaseFunc" needs to be exported by the entry point index.d.ts
 //
 // @public
 export function debounce(func: BaseFunc, wait: number, immediate?: boolean): BaseFunc;
+
+// @public
+export function decrypt(content: string, key?: string, loadUrl?: string, isSingle?: boolean): Promise<string | false>;
 
 // @public
 export function deepClone(origin: any, hasMap?: WeakMap<object, any>): any;
@@ -21,10 +43,68 @@ export function deepClone(origin: any, hasMap?: WeakMap<object, any>): any;
 export function deleteCookie(name: string, domain?: string, path?: string): void;
 
 // @public
+export function encrypt(content: string, key?: string, loadUrl?: string, isSingle?: boolean): Promise<string | false>;
+
+// @public (undocumented)
+export const EncryptKey: {
+    publicKey: string;
+    privateKey: string;
+};
+
+// @public
 export function getCookie(name: string): string;
 
 // @public
+export function getDataType(val: unknown): string;
+
+// @public (undocumented)
+export function getDecimal(): Promise<any>;
+
+// @public
 export function getDomain(): string;
+
+// @public
+export function getGlobal(): (Window & typeof globalThis) | typeof globalThis;
+
+// Warning: (ae-forgotten-export) The symbol "ILangOptions" needs to be exported by the entry point index.d.ts
+//
+// @public
+export const getLangCode: (options?: ILangOptions) => string;
+
+// @public
+export function getLangCodeByServer({ host, query, ua, langOptions, }: {
+    host: string;
+    query: BaseObject_2;
+    ua: string;
+    langOptions: ILangOptions;
+}): string;
+
+// @public
+export const getLangCodeUAgent: (customUA?: string, lang?: string) => string | undefined;
+
+// Warning: (ae-forgotten-export) The symbol "ILangCodeUrl" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "LangCodeDefault" needs to be exported by the entry point index.d.ts
+//
+// @public
+export const getLangCodeUrl: (l?: ILangCodeUrl) => string | LangCodeDefault | undefined;
+
+// @public
+export function getQuery(name: string, url?: string): string | undefined;
+
+// @public
+export function getTarget(ev: Event): EventTarget;
+
+// @public
+export function getTHSAppVersion(customUA?: string): string;
+
+// @public
+export function getUAgent(customUA?: string): {
+    UA: string;
+    ua: string;
+};
+
+// @public
+export function getUaQuery(sign: string, customUA?: string): string;
 
 // Warning: (ae-forgotten-export) The symbol "BaseObject" needs to be exported by the entry point index.d.ts
 //
@@ -32,13 +112,205 @@ export function getDomain(): string;
 export function importAll(context: __WebpackModuleApi.RequireContext, extRegExp?: RegExp, keyRegExpCb?: (key: string) => string): BaseObject;
 
 // @public
-export function isInvalid(value: unknown): boolean;
+export const inSDKAppType: (type: appType[], customUA?: string) => boolean;
+
+// @public
+export const inSinaFinance: (customUA?: string) => boolean;
+
+// @public
+export function isAndroid(customUA?: string): boolean;
+
+// @public (undocumented)
+export const isAndroidRegx: RegExp;
+
+// @public
+export function isArray<T = any>(val: unknown): val is Array<T>;
+
+// @public
+export function isBoolean(val: unknown): val is boolean;
+
+// @public
+export function isBrowser(): boolean;
+
+// @public
+export function isDate(val: unknown): val is Date;
+
+// @public
+export function isElement(val: unknown): val is Element;
+
+// @public
+export function isEmpty<T = unknown>(val: T): val is T;
+
+// @public
+export function isEnUS(lang: string): boolean;
+
+// @public
+export function isFunction(val: unknown): val is Function;
+
+// @public
+export function isInvalid(value: unknown, ignoreString?: boolean): boolean;
+
+// @public
+export function isIOS(customUA?: string): boolean;
+
+// @public (undocumented)
+export const isIOSRegx: RegExp;
+
+// @public
+export function isMAC(customUA?: string): boolean;
+
+// @public (undocumented)
+export const isMACRegx: RegExp;
+
+// @public
+export function isMobile(customUA?: string): boolean;
+
+// @public (undocumented)
+export const isMobileRegx: RegExp;
+
+// @public
+function isNaN_2(val: unknown): val is number;
+
+export { isNaN_2 as isNaN }
+
+// @public
+export function isNull(val: unknown): val is null;
 
 // @public
 export function isNumber(val: unknown): val is number;
 
 // @public
-export function isObject(val: unknown): val is BaseObject;
+export function isObject(val: unknown, isExact?: boolean): val is Record<string, unknown>;
+
+// @public
+export function isPC(customUA?: string): boolean;
+
+// @public
+export function isPromise<T = any>(val: any): val is Promise<T>;
+
+// @public
+export function isRegExp(val: unknown): val is RegExp;
+
+// @public
+export function isString(val: unknown): val is string;
+
+// @public
+export function isTHSHexinGphone(customUA?: string): boolean;
+
+// @public (undocumented)
+export const isTHSHexinGphoneRegx: RegExp;
+
+// @public
+export function isTHSIHexin(customUA?: string): boolean;
+
+// @public (undocumented)
+export const isTHSIHexinRegx: RegExp;
+
+// @public
+export function isUndefined(val: unknown): val is undefined;
+
+// @public
+export function isWeChat(customUA?: string): boolean;
+
+// @public (undocumented)
+export const isWechatRegx: RegExp;
+
+// @public
+export function isWeiBo(customUA?: string): boolean;
+
+// @public (undocumented)
+export const isWeiBoRegx: RegExp;
+
+// @public
+export function isWIN(customUA?: string): boolean;
+
+// @public (undocumented)
+export const isWINRegx: RegExp;
+
+// @public
+export function isWxInAndroidAndNeedCaptureCamera(compareVersion?: string, customUA?: string): boolean;
+
+// @public
+export function isZhCN(lang: string): boolean;
+
+// @public
+export function isZhHK(lang: string): boolean;
+
+// @public (undocumented)
+export function loadJS(url: string, key: string, id?: string): Promise<any>;
+
+// @public (undocumented)
+export const local: {
+    get(name: string): any;
+    set(name: string, value: string | Record<string, unknown>): void;
+    remove(name: string): void;
+    clear(): void;
+};
+
+// @public (undocumented)
+export enum LogModule {
+    // (undocumented)
+    Detector = "Detector",
+    // (undocumented)
+    Encrypt = "Encrypt",
+    // (undocumented)
+    ImgCompress = "ImgCompress",
+    // (undocumented)
+    JSBridge = "JSBridge",
+    // (undocumented)
+    Lang = "Lang",
+    // (undocumented)
+    Url = "Url",
+    // (undocumented)
+    Validate = "Validate",
+    // (undocumented)
+    WeChat = "WeChat"
+}
+
+// @public
+export function mathAdd(value: number, ...arr: number[]): Promise<number>;
+
+// @public
+export function mathDivide(a: number, ...arr: number[]): Promise<number>;
+
+// @public
+export function mathMultiply(a: number, ...arr: number[]): Promise<number>;
+
+// @public
+export function mathSubStract(a: number, ...arr: number[]): Promise<number>;
+
+// @public
+export function mathToFixed(value: number, options: {
+    num?: number;
+}): Promise<string>;
+
+// @public
+export function mathToNumber(value: any): number;
+
+// @public (undocumented)
+export enum PluginKey {
+    // (undocumented)
+    EXIF = "EXIF",
+    // (undocumented)
+    JSEncrypt = "JSEncrypt",
+    // (undocumented)
+    WECHAT = "wx"
+}
+
+// @public (undocumented)
+export const PluginUrl: {
+    EXIF: string;
+    JSEncrypt: string;
+    WECHAT: string;
+};
+
+// @public (undocumented)
+export const session: {
+    get(name: string): any;
+    set(name: string, value: string | Record<string, unknown> | any): void;
+    remove(name: string): void;
+    clear(): void;
+};
 
 // @public
 export function setCookie(name: string, value: string, time: number, domain?: string, path?: string): void;
@@ -47,7 +319,19 @@ export function setCookie(name: string, value: string, time: number, domain?: st
 export function thousandFormatter(value: string | number): string;
 
 // @public
-export function throttle(func: BaseFunc, wait: number, type?: number): BaseFunc;
+export function throttle(func: BaseFunc, wait?: number, type?: number): BaseFunc;
+
+// @public
+export function tryCatch<T>(promise: Promise<T>): Promise<any[] | T[]>;
+
+// @public
+export function uaVersion(sign: string, customUA?: string): string;
+
+// @public
+export function wait(timeSpan?: number): Promise<never>;
+
+// @public
+export function wechatVersion(customUA?: string): string;
 
 
 // (No @packageDocumentation comment for this package)

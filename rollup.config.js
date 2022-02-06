@@ -87,5 +87,5 @@ const hookRollupConfig = {
   ],
 };
 
-// export default [rollupConfig, hookRollupConfig];
-export default [hookRollupConfig];
+export default [rollupConfig, hookRollupConfig];
+// export default [hookRollupConfig];

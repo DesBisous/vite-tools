@@ -28,5 +28,5 @@ export const changelog = series(start, changelogTask, complete);
 // 3. api-extractor 生成统一的声明文件, 删除多余的声明文件
 // 4. 完成
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export const build_1 = series(start, clearLibTask, buildRollupTask, apiExtractorTask, changelogTask, complete);
-export const build = series(start, clearLibTask, buildRollupTask, changelogTask, complete);
+export const build = series(start, clearLibTask, buildRollupTask, apiExtractorTask, changelogTask, complete);
+export const build_1 = series(start, clearLibTask, buildRollupTask, changelogTask, complete);
